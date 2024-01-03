@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="OLEDB_Informix"
+  DTS:DTSID="{C975F85D-4C05-4CA2-80EF-88CFE4EAE12E}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=ucsh@saes_soc;User ID=ifxprod;Provider=Ifxoledbc.4;Persist Security Info=True;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAv5Ski4UmcUuTeiKmBc3dcQAAAAACAAAAAAADZgAAwAAAABAAAAAcEySwwZznsd5ZN6cHATzlAAAAAASAAACgAAAAEAAAAG+D948GcZNaVpKRh8QOag54AAAAz6Nh+slPe70Pdy9I4KA2zOE5qHjsqJMRYGUBxGcpSY1YUb9ocs6YgmC4MD61qt8RvC9RvE+YiWiDxyQ5m1PGGdix4p4q5dnavbp/DapTxnMEWE1gP6Ez/DZeM31Amc+SojxO7BBaiwwWd8sKILNV40J7uhws1iq9FAAAAK0C62rn13HOK+5fdRLMWpg9VG1M</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

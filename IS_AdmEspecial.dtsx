@@ -1,0 +1,1853 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/30/2023 11:57:09 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="WS2019_BD2019_B"
+  DTS:CreatorName="INTRANET\administrador"
+  DTS:DTSID="{B6A79BF1-577E-4533-B5E3-F45FA93DBA8A}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="IS_AdmEspecial"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{71976BDF-CD3B-4B3B-B892-82C6A5672C8C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.1.157.DWHSource]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{89A29A96-78D8-44B4-8538-54C5BD87EB31}"
+      DTS:ObjectName="192.168.1.157.DWHSource">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=192.168.1.157;Initial Catalog=DWHSource;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ucsh@saes_soc.informix]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8A440441-2C59-4487-9407-AF2E5F967DB8}"
+      DTS:ObjectName="ucsh@saes_soc.informix">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ucsh@saes_soc;User ID=ifxprod;Provider=Ifxoledbc.4;Persist Security Info=True;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAv5Ski4UmcUuTeiKmBc3dcQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAA+VXLOlVbsdtT+xeWAn1yhAAAAAASAAACgAAAAEAAAADFK81Qg0tZceCSGLFR+AvMYAAAAjR+9PUJ5VXziYzdjk0fWg3LyNIWvttNvFAAAACSl7zzJSHHGrGnJrIPzdyS9dAjS</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{02DBF5A7-7D2A-4C66-B067-02555D19B8B4}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ANIO">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6CDDECCD-BD0A-449A-BF23-979E603215E6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VEPE">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Contenedor de secuencias 2"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Contenedor de secuencias"
+      DTS:DTSID="{f22e9f99-8f35-4de9-a539-ad3c8815858a}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Contenedor de secuencias 2">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Contenedor de secuencias 2\borra tipo admision oferta"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Tarea Ejecutar SQL"
+          DTS:DTSID="{8cbbda84-6c9a-4c4b-bea6-9a158e01922e}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="borra tipo admision oferta"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{89A29A96-78D8-44B4-8538-54C5BD87EB31}"
+              SQLTask:SqlStatementSource="delete from UCSH_TIPOADMISION_OFERTA&#xA;where anio = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::ANIO"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:Description="Tarea Flujo de datos"
+          DTS:DTSID="{50c2138f-1fe4-4ce0-9aa5-167172e2161c}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Carga tipo admision oferta"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Columna derivada"
+                  componentClassID="DTSTransform.DerivedColumn.3"
+                  contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+                  description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+                  name="Columna derivada"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Columna derivada.Inputs[Entrada de columna derivada]"
+                      description="Entrada en la transformación Columna derivada"
+                      name="Entrada de columna derivada">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Columna derivada.Outputs[Salida de columna derivada]"
+                      description="Salida predeterminada de la transformación Columna derivada"
+                      exclusionGroup="1"
+                      name="Salida de columna derivada"
+                      synchronousInputId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Columna derivada.Inputs[Entrada de columna derivada]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Columna derivada.Outputs[Salida de columna derivada].Columns[año]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Cálculo"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Columna derivada.Outputs[Salida de columna derivada].Columns[año]"
+                          name="año"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expresión de columna derivada"
+                              name="Expression">@[User::ANIO]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expresión descriptiva de columna derivada"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ANIO]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Columna derivada.Outputs[Salida de error de columna derivada]"
+                      description="Salida de error de la transformación Columna derivada"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Salida de error de columna derivada"
+                      synchronousInputId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Columna derivada.Inputs[Entrada de columna derivada]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB"
+                  componentClassID="DTSAdapter.OLEDBDestination.3"
+                  contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+                  description="Destino de OLE DB"
+                  name="Destino de OLE DB"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                      name="OpenRowset">[UCSH_TIPOADMISION_OFERTA]</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="Comando SQL para ejecutar."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir caracteres."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[192.168.1.157.DWHSource]"
+                      connectionManagerRefId="Package.ConnectionManagers[192.168.1.157.DWHSource]"
+                      description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                      errorOrTruncationOperation="Insertar"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Entrada de destino de OLE DB">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[cuvi_carr]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="3"
+                          cachedName="cuvi_carr"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[cuvi_carr]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cuvi_carr]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[carr_desc]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="carr_desc"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[carr_desc]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[carr_desc]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[cuvi_tiad]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="cuvi_tiad"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[cuvi_tiad]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cuvi_tiad]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[cuvi_n100]"
+                          cachedDataType="i4"
+                          cachedName="cuvi_n100"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[cuvi_n100]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cuvi_n100]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[veces_p_n100]"
+                          cachedDataType="i4"
+                          cachedName="veces_p_n100"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[veces_p_n100]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[veces_p_n100]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[veces_m_n100]"
+                          cachedDataType="i4"
+                          cachedName="veces_m_n100"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[veces_m_n100]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[veces_m_n100]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[cuvi_bach]"
+                          cachedDataType="i4"
+                          cachedName="cuvi_bach"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[cuvi_bach]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cuvi_bach]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[veces_p_bach]"
+                          cachedDataType="i4"
+                          cachedName="veces_p_bach"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[veces_p_bach]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[veces_p_bach]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[veces_m_bach]"
+                          cachedDataType="i4"
+                          cachedName="veces_m_bach"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[veces_m_bach]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[veces_m_bach]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[cuvi_conv]"
+                          cachedDataType="i4"
+                          cachedName="cuvi_conv"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[cuvi_conv]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cuvi_conv]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[veces_p_conv]"
+                          cachedDataType="i4"
+                          cachedName="veces_p_conv"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[veces_p_conv]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[veces_p_conv]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[veces_m_conv]"
+                          cachedDataType="i4"
+                          cachedName="veces_m_conv"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[veces_m_conv]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[veces_m_conv]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[cuvi_tota]"
+                          cachedDataType="i4"
+                          cachedName="cuvi_tota"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[cuvi_tota]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cuvi_tota]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[veces_p_tota]"
+                          cachedDataType="i4"
+                          cachedName="veces_p_tota"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[veces_p_tota]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[veces_p_tota]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[veces_m_tota]"
+                          cachedDataType="i4"
+                          cachedName="veces_m_tota"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[veces_m_tota]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[veces_m_tota]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[año]"
+                          cachedDataType="i4"
+                          cachedName="año"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[anio]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Columna derivada.Outputs[Salida de columna derivada].Columns[año]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[cuvi_carr]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          name="cuvi_carr" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[carr_desc]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="carr_desc" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[cuvi_tiad]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="cuvi_tiad" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[cuvi_n100]"
+                          dataType="i4"
+                          name="cuvi_n100" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[veces_p_n100]"
+                          dataType="i4"
+                          name="veces_p_n100" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[veces_m_n100]"
+                          dataType="i4"
+                          name="veces_m_n100" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[cuvi_bach]"
+                          dataType="i4"
+                          name="cuvi_bach" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[veces_p_bach]"
+                          dataType="i4"
+                          name="veces_p_bach" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[veces_m_bach]"
+                          dataType="i4"
+                          name="veces_m_bach" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[cuvi_conv]"
+                          dataType="i4"
+                          name="cuvi_conv" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[veces_p_conv]"
+                          dataType="i4"
+                          name="veces_p_conv" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[veces_m_conv]"
+                          dataType="i4"
+                          name="veces_m_conv" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[cuvi_tota]"
+                          dataType="i4"
+                          name="cuvi_tota" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[veces_p_tota]"
+                          dataType="i4"
+                          name="veces_p_tota" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[veces_m_tota]"
+                          dataType="i4"
+                          name="veces_m_tota" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[anio]"
+                          dataType="i4"
+                          name="anio" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Salida de error de destino de OLE DB"
+                      synchronousInputId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB"
+                  componentClassID="DTSAdapter.OLEDBSource.3"
+                  contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+                  description="Origen de OLE DB"
+                  name="Origen de OLE DB"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="Comando SQL para ejecutar."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">execute procedure ifx_adm_especial(?)</property>
+                    <property
+                      dataType="System.String"
+                      description="Variable que contiene el comando SQL para ejecutar."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir caracteres."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="Asignaciones entre los parámetros del comando SQL y las variables."
+                      name="ParameterMapping">"0:Input",{02DBF5A7-7D2A-4C66-B067-02555D19B8B4};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[ucsh@saes_soc.informix]"
+                      connectionManagerRefId="Package.ConnectionManagers[ucsh@saes_soc.informix]"
+                      description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB]"
+                      name="Salida de origen de OLE DB">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cuvi_carr]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[cuvi_carr]"
+                          length="3"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cuvi_carr]"
+                          name="cuvi_carr"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[carr_desc]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[carr_desc]"
+                          length="30"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[carr_desc]"
+                          name="carr_desc"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cuvi_tiad]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[cuvi_tiad]"
+                          length="30"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cuvi_tiad]"
+                          name="cuvi_tiad"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cuvi_n100]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[cuvi_n100]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cuvi_n100]"
+                          name="cuvi_n100"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[veces_p_n100]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[veces_p_n100]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[veces_p_n100]"
+                          name="veces_p_n100"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[veces_m_n100]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[veces_m_n100]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[veces_m_n100]"
+                          name="veces_m_n100"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cuvi_bach]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[cuvi_bach]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cuvi_bach]"
+                          name="cuvi_bach"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[veces_p_bach]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[veces_p_bach]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[veces_p_bach]"
+                          name="veces_p_bach"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[veces_m_bach]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[veces_m_bach]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[veces_m_bach]"
+                          name="veces_m_bach"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cuvi_conv]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[cuvi_conv]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cuvi_conv]"
+                          name="cuvi_conv"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[veces_p_conv]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[veces_p_conv]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[veces_p_conv]"
+                          name="veces_p_conv"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[veces_m_conv]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[veces_m_conv]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[veces_m_conv]"
+                          name="veces_m_conv"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cuvi_tota]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[cuvi_tota]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cuvi_tota]"
+                          name="cuvi_tota"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[veces_p_tota]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[veces_p_tota]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[veces_p_tota]"
+                          name="veces_p_tota"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[veces_m_tota]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[veces_m_tota]"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[veces_m_tota]"
+                          name="veces_m_tota"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[cuvi_carr]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          name="cuvi_carr" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[carr_desc]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="carr_desc" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[cuvi_tiad]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="cuvi_tiad" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[cuvi_n100]"
+                          dataType="i4"
+                          name="cuvi_n100" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[veces_p_n100]"
+                          dataType="i4"
+                          name="veces_p_n100" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[veces_m_n100]"
+                          dataType="i4"
+                          name="veces_m_n100" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[cuvi_bach]"
+                          dataType="i4"
+                          name="cuvi_bach" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[veces_p_bach]"
+                          dataType="i4"
+                          name="veces_p_bach" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[veces_m_bach]"
+                          dataType="i4"
+                          name="veces_m_bach" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[cuvi_conv]"
+                          dataType="i4"
+                          name="cuvi_conv" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[veces_p_conv]"
+                          dataType="i4"
+                          name="veces_p_conv" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[veces_m_conv]"
+                          dataType="i4"
+                          name="veces_m_conv" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[cuvi_tota]"
+                          dataType="i4"
+                          name="cuvi_tota" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[veces_p_tota]"
+                          dataType="i4"
+                          name="veces_p_tota" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[veces_m_tota]"
+                          dataType="i4"
+                          name="veces_m_tota" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB]"
+                      isErrorOut="true"
+                      name="Salida de error de origen de OLE DB">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[cuvi_carr]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[cuvi_carr]"
+                          name="cuvi_carr" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[carr_desc]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[carr_desc]"
+                          name="carr_desc" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[cuvi_tiad]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[cuvi_tiad]"
+                          name="cuvi_tiad" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[cuvi_n100]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[cuvi_n100]"
+                          name="cuvi_n100" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[veces_p_n100]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[veces_p_n100]"
+                          name="veces_p_n100" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[veces_m_n100]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[veces_m_n100]"
+                          name="veces_m_n100" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[cuvi_bach]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[cuvi_bach]"
+                          name="cuvi_bach" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[veces_p_bach]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[veces_p_bach]"
+                          name="veces_p_bach" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[veces_m_bach]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[veces_m_bach]"
+                          name="veces_m_bach" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[cuvi_conv]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[cuvi_conv]"
+                          name="cuvi_conv" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[veces_p_conv]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[veces_p_conv]"
+                          name="veces_p_conv" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[veces_m_conv]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[veces_m_conv]"
+                          name="veces_m_conv" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[cuvi_tota]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[cuvi_tota]"
+                          name="cuvi_tota" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[veces_p_tota]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[veces_p_tota]"
+                          name="veces_p_tota" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[veces_m_tota]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[veces_m_tota]"
+                          name="veces_m_tota" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta.Paths[Salida de columna derivada]"
+                  endId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  name="Salida de columna derivada"
+                  startId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Columna derivada.Outputs[Salida de columna derivada]" />
+                <path
+                  refId="Package\Contenedor de secuencias 2\Carga tipo admision oferta.Paths[Salida de origen de OLE DB]"
+                  endId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Columna derivada.Inputs[Entrada de columna derivada]"
+                  name="Salida de origen de OLE DB"
+                  startId="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Contenedor de secuencias 2.PrecedenceConstraints[Restricción]"
+          DTS:CreationName=""
+          DTS:DTSID="{fd741405-8dd5-4b6c-be6e-4929a66456d7}"
+          DTS:From="Package\Contenedor de secuencias 2\borra tipo admision oferta"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción"
+          DTS:To="Package\Contenedor de secuencias 2\Carga tipo admision oferta" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Contenedor de secuencias 5"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Contenedor de secuencias"
+      DTS:DTSID="{93ccdc1f-0444-4745-ad3c-acd7599f6a92}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Contenedor de secuencias 5">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Contenedor de secuencias 5\borra zg_matriucla"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Tarea Ejecutar SQL"
+          DTS:DTSID="{0b0365fd-62cf-4cd7-ba79-538de4b3253e}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="borra zg_matriucla"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{89A29A96-78D8-44B4-8538-54C5BD87EB31}"
+              SQLTask:SqlStatementSource="delete FROM [DWHSource].[dbo].[ZG_Matricula_PorFacultadEspecial]&#xA;where anio = ? " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::ANIO"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Contenedor de secuencias 5\carga zg_matriucla"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:Description="Tarea Flujo de datos"
+          DTS:DTSID="{1a741364-9487-4a47-bfef-d73ee2d2a57b}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="carga zg_matriucla"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Columna derivada"
+                  componentClassID="DTSTransform.DerivedColumn.3"
+                  contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+                  description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+                  name="Columna derivada"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Columna derivada.Inputs[Entrada de columna derivada]"
+                      description="Entrada en la transformación Columna derivada"
+                      name="Entrada de columna derivada">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Columna derivada.Outputs[Salida de columna derivada]"
+                      description="Salida predeterminada de la transformación Columna derivada"
+                      exclusionGroup="1"
+                      name="Salida de columna derivada"
+                      synchronousInputId="Package\Contenedor de secuencias 5\carga zg_matriucla\Columna derivada.Inputs[Entrada de columna derivada]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Columna derivada.Outputs[Salida de columna derivada].Columns[anio]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Cálculo"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Contenedor de secuencias 5\carga zg_matriucla\Columna derivada.Outputs[Salida de columna derivada].Columns[anio]"
+                          name="anio"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expresión de columna derivada"
+                              name="Expression">@[User::ANIO]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expresión descriptiva de columna derivada"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ANIO]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Columna derivada.Outputs[Salida de error de columna derivada]"
+                      description="Salida de error de la transformación Columna derivada"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Salida de error de columna derivada"
+                      synchronousInputId="Package\Contenedor de secuencias 5\carga zg_matriucla\Columna derivada.Inputs[Entrada de columna derivada]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 5\carga zg_matriucla\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 5\carga zg_matriucla\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB"
+                  componentClassID="DTSAdapter.OLEDBDestination.3"
+                  contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+                  description="Destino de OLE DB"
+                  name="Destino de OLE DB"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                      name="OpenRowset">[ZG_Matricula_PorFacultadEspecial]</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="Comando SQL para ejecutar."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir caracteres."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[192.168.1.157.DWHSource]"
+                      connectionManagerRefId="Package.ConnectionManagers[192.168.1.157.DWHSource]"
+                      description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                      errorOrTruncationOperation="Insertar"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Entrada de destino de OLE DB">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[facu_desc]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="facu_desc"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[facu_desc]"
+                          lineageId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[facu_desc]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[cupo_total]"
+                          cachedDataType="i4"
+                          cachedName="cupo_total"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[cupo_total]"
+                          lineageId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cupo_total]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[postulantes]"
+                          cachedDataType="i4"
+                          cachedName="postulantes"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[postulantes]"
+                          lineageId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[postulantes]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[matriculados]"
+                          cachedDataType="i4"
+                          cachedName="matriculados"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[matriculados]"
+                          lineageId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[matriculados]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[anio]"
+                          cachedDataType="i4"
+                          cachedName="anio"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[anio]"
+                          lineageId="Package\Contenedor de secuencias 5\carga zg_matriucla\Columna derivada.Outputs[Salida de columna derivada].Columns[anio]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[facu_desc]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="facu_desc" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[cupo_total]"
+                          dataType="i4"
+                          name="cupo_total" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[postulantes]"
+                          dataType="i4"
+                          name="postulantes" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[matriculados]"
+                          dataType="i4"
+                          name="matriculados" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[anio]"
+                          dataType="i4"
+                          name="anio" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Salida de error de destino de OLE DB"
+                      synchronousInputId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB"
+                  componentClassID="DTSAdapter.OLEDBSource.3"
+                  contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+                  description="Origen de OLE DB"
+                  name="Origen de OLE DB"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="Comando SQL para ejecutar."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT facu_desc, sum(isnull(cuvi_tota,0)) as cupo_total, sum(veces_p_tota) as postulantes, sum(veces_m_tota) as matriculados FROM UCSH_TIPOADMISION_OFERTA
+ left join ucsh_adcarr on carr_codi = cuvi_carr left join ucsh_adescu on escu_codi = carr_escu left join ucsh_adfacu on facu_codi = escu_facu
+ WHERE anio =?
+ group by facu_desc</property>
+                    <property
+                      dataType="System.String"
+                      description="Variable que contiene el comando SQL para ejecutar."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir caracteres."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="Asignaciones entre los parámetros del comando SQL y las variables."
+                      name="ParameterMapping">"0:Input",{02DBF5A7-7D2A-4C66-B067-02555D19B8B4};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[192.168.1.157.DWHSource]"
+                      connectionManagerRefId="Package.ConnectionManagers[192.168.1.157.DWHSource]"
+                      description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de origen de OLE DB]"
+                      name="Salida de origen de OLE DB">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[facu_desc]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[facu_desc]"
+                          length="60"
+                          lineageId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[facu_desc]"
+                          name="facu_desc"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cupo_total]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[cupo_total]"
+                          lineageId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cupo_total]"
+                          name="cupo_total"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[postulantes]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[postulantes]"
+                          lineageId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[postulantes]"
+                          name="postulantes"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[matriculados]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[matriculados]"
+                          lineageId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[matriculados]"
+                          name="matriculados"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[facu_desc]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="facu_desc" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[cupo_total]"
+                          dataType="i4"
+                          name="cupo_total" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[postulantes]"
+                          dataType="i4"
+                          name="postulantes" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[matriculados]"
+                          dataType="i4"
+                          name="matriculados" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB]"
+                      isErrorOut="true"
+                      name="Salida de error de origen de OLE DB">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[facu_desc]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[facu_desc]"
+                          name="facu_desc" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[cupo_total]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[cupo_total]"
+                          name="cupo_total" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[postulantes]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[postulantes]"
+                          name="postulantes" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[matriculados]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[matriculados]"
+                          name="matriculados" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Contenedor de secuencias 5\carga zg_matriucla.Paths[Salida de columna derivada]"
+                  endId="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  name="Salida de columna derivada"
+                  startId="Package\Contenedor de secuencias 5\carga zg_matriucla\Columna derivada.Outputs[Salida de columna derivada]" />
+                <path
+                  refId="Package\Contenedor de secuencias 5\carga zg_matriucla.Paths[Salida de origen de OLE DB]"
+                  endId="Package\Contenedor de secuencias 5\carga zg_matriucla\Columna derivada.Inputs[Entrada de columna derivada]"
+                  name="Salida de origen de OLE DB"
+                  startId="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Contenedor de secuencias 5.PrecedenceConstraints[Restricción]"
+          DTS:CreationName=""
+          DTS:DTSID="{613775dd-957e-4fb7-bae7-7f8b29c3a645}"
+          DTS:From="Package\Contenedor de secuencias 5\borra zg_matriucla"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción"
+          DTS:To="Package\Contenedor de secuencias 5\carga zg_matriucla" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Ejecutar SQL 2"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{be672270-f73e-4669-bbe7-8a8b20fc9a36}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Ejecutar SQL 2"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{89A29A96-78D8-44B4-8538-54C5BD87EB31}"
+          SQLTask:SqlStatementSource="&#xA;&#xA;update dwhsource.dbo.PeriodosCarga set anio = &#xA;CASE when month(getdate()) &gt;= 11  then year(getdate())+1&#xA;else year(getdate())&#xA;END&#xA;WHERE   NOMBREETL = 'Analisis_Sua' AND INSTITUCION = 'UCSH'&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Ejecutar SQL 3"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{460c7dcd-a90e-4ab2-b21d-f566babd9d4e}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Ejecutar SQL 3"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{89A29A96-78D8-44B4-8538-54C5BD87EB31}"
+          SQLTask:SqlStatementSource="select anio from dwhsource.dbo.PeriodosCarga&#xA; where habilitado=1 and NombreETL='Analisis_Sua' and Institucion='UCSH';"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::ANIO" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{C396AE5B-524D-473A-B2D7-EDBA812C1938}"
+      DTS:From="Package\Contenedor de secuencias 2"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Contenedor de secuencias 5" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{A9195688-7F3B-4362-A34D-C565222458B9}"
+      DTS:From="Package\Tarea Ejecutar SQL 3"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\Contenedor de secuencias 2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{cd4b55c1-c676-473e-a17f-e0675ed788fc}"
+      DTS:From="Package\Tarea Ejecutar SQL 2"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 10"
+      DTS:To="Package\Tarea Ejecutar SQL 3" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="sql11">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="201,42"
+          Id="Package\Contenedor de secuencias 2\borra tipo admision oferta"
+          TopLeft="36.3333333333335,9.37254904820725" />
+        <NodeLayout
+          Size="204,42"
+          Id="Package\Contenedor de secuencias 2\Carga tipo admision oferta"
+          TopLeft="173,97.333333333333" />
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias 2.PrecedenceConstraints[Restricción]"
+          TopLeft="136.833333333333,51.3725490482072">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="138.166666666667,45.9607842851258"
+              Start="0,0"
+              End="138.166666666667,38.4607842851258">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.9803921425629" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.9803921425629"
+                    Point2="0,22.9803921425629"
+                    Point3="4,22.9803921425629" />
+                  <mssgle:LineSegment
+                    End="134.166666666667,22.9803921425629" />
+                  <mssgle:CubicBezierSegment
+                    Point1="134.166666666667,22.9803921425629"
+                    Point2="138.166666666667,22.9803921425629"
+                    Point3="138.166666666667,26.9803921425629" />
+                  <mssgle:LineSegment
+                    End="138.166666666667,38.4607842851258" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="424,194"
+          Size="424,237"
+          Id="Package\Contenedor de secuencias 2"
+          TopLeft="299,249.571428571429" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Contenedor de secuencias 5\borra zg_matriucla"
+          TopLeft="5.5,6.34313859906615" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Contenedor de secuencias 5\carga zg_matriucla"
+          TopLeft="43.9285704878719,100.176471932399" />
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias 5.PrecedenceConstraints[Restricción]"
+          TopLeft="89,48.3431385990662">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.9285704878719,51.8333333333328"
+              Start="0,0"
+              End="38.9285704878719,44.3333333333328">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.9166666666664" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.9166666666664"
+                    Point2="0,25.9166666666664"
+                    Point3="4,25.9166666666664" />
+                  <mssgle:LineSegment
+                    End="34.9285704878719,25.9166666666664" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.9285704878719,25.9166666666664"
+                    Point2="38.9285704878719,25.9166666666664"
+                    Point3="38.9285704878719,29.9166666666664" />
+                  <mssgle:LineSegment
+                    End="38.9285704878719,44.3333333333328" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="233,197"
+          Size="233,240"
+          Id="Package\Contenedor de secuencias 5"
+          TopLeft="447.571428571429,568.857142857143" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Tarea Ejecutar SQL 2"
+          TopLeft="524.285714285714,95.7142857142857" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Tarea Ejecutar SQL 3"
+          TopLeft="334.285714285714,175.047619047619" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="511,486.571428571429">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53.0714285714287,82.2857142857143"
+              Start="0,0"
+              End="53.0714285714287,74.7857142857143">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.1428571428572" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.1428571428572"
+                    Point2="0,41.1428571428572"
+                    Point3="4,41.1428571428572" />
+                  <mssgle:LineSegment
+                    End="49.0714285714287,41.1428571428572" />
+                  <mssgle:CubicBezierSegment
+                    Point1="49.0714285714287,41.1428571428572"
+                    Point2="53.0714285714287,41.1428571428572"
+                    Point3="53.0714285714287,45.1428571428572" />
+                  <mssgle:LineSegment
+                    End="53.0714285714287,74.7857142857143" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="423.785714285714,217.047619047619">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="87.2142857142857,32.5238095238099"
+              Start="0,0"
+              End="87.2142857142857,25.0238095238099">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.2619047619049" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.2619047619049"
+                    Point2="0,16.2619047619049"
+                    Point3="4,16.2619047619049" />
+                  <mssgle:LineSegment
+                    End="83.2142857142857,16.2619047619049" />
+                  <mssgle:CubicBezierSegment
+                    Point1="83.2142857142857,16.2619047619049"
+                    Point2="87.2142857142857,16.2619047619049"
+                    Point3="87.2142857142857,20.2619047619049" />
+                  <mssgle:LineSegment
+                    End="87.2142857142857,25.0238095238099" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 10]"
+          TopLeft="613.785714285714,137.714285714286">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-190,37.333333333333"
+              Start="0,0"
+              End="-190,29.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.6666666666665" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.6666666666665"
+                    Point2="0,18.6666666666665"
+                    Point3="-4,18.6666666666665" />
+                  <mssgle:LineSegment
+                    End="-186,18.6666666666665" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-186,18.6666666666665"
+                    Point2="-190,18.6666666666665"
+                    Point3="-190,22.6666666666665" />
+                  <mssgle:LineSegment
+                    End="-190,29.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Contenedor de secuencias 2\Carga tipo admision oferta">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB"
+          TopLeft="158,61" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB"
+          TopLeft="208,233" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Columna derivada"
+          TopLeft="322,132" />
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias 2\Carga tipo admision oferta.Paths[Salida de origen de OLE DB]"
+          TopLeft="240,103">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="164,29"
+              Start="0,0"
+              End="164,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.5"
+                    Point2="0,14.5"
+                    Point3="4,14.5" />
+                  <mssgle:LineSegment
+                    End="160,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="160,14.5"
+                    Point2="164,14.5"
+                    Point3="164,18.5" />
+                  <mssgle:LineSegment
+                    End="164,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias 2\Carga tipo admision oferta.Paths[Salida de columna derivada]"
+          TopLeft="404,174">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-112,59"
+              Start="0,0"
+              End="-112,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.5"
+                    Point2="0,29.5"
+                    Point3="-4,29.5" />
+                  <mssgle:LineSegment
+                    End="-108,29.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-108,29.5"
+                    Point2="-112,29.5"
+                    Point3="-112,33.5" />
+                  <mssgle:LineSegment
+                    End="-112,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Contenedor de secuencias 2\Carga tipo admision oferta\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Contenedor de secuencias 5\carga zg_matriucla">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB"
+          TopLeft="84,196" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB"
+          TopLeft="84,42" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Contenedor de secuencias 5\carga zg_matriucla\Columna derivada"
+          TopLeft="246,114" />
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias 5\carga zg_matriucla.Paths[Salida de columna derivada]"
+          TopLeft="328,156">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-160,40"
+              Start="0,0"
+              End="-160,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16"
+                    Point2="0,20"
+                    Point3="-4,20" />
+                  <mssgle:LineSegment
+                    End="-156,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-156,20"
+                    Point2="-160,20"
+                    Point3="-160,24" />
+                  <mssgle:LineSegment
+                    End="-160,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias 5\carga zg_matriucla.Paths[Salida de origen de OLE DB]"
+          TopLeft="166,84">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="162,30"
+              Start="0,0"
+              End="162,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11"
+                    Point2="0,15"
+                    Point3="4,15" />
+                  <mssgle:LineSegment
+                    End="158,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="158,15"
+                    Point2="162,15"
+                    Point3="162,19" />
+                  <mssgle:LineSegment
+                    End="162,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Contenedor de secuencias 5\carga zg_matriucla\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Contenedor de secuencias 5\carga zg_matriucla\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
